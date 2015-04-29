@@ -7,6 +7,7 @@
 	<title>Asset Tracking</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -34,10 +35,10 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<!-- <li><a href="{{ url('/home') }}">Home</a></li> -->
-					<li><a href="{{ url('/search') }}">Search</a></li>
+<!-- 					<li><a href="{{ url('/search') }}">Search</a></li>
 					<li><a href="{{ url('/items') }}">Items</a></li>
 					<li><a href="{{ url('/kits') }}">Kits</a></li>
-					<li><a href="{{ url('/loans') }}">Loans <span class="badge">0</span> </a></li>
+					<li><a href="{{ url('/loans') }}">Loans <span class="badge">0</span> </a></li> -->
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

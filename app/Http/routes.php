@@ -23,9 +23,9 @@ Route::get('search/query' , 'SearchController@query');
 
 // Items
 Route::get('items' , 'ItemsController@index');
-Route::get('items/create' , 'ItemsController@create');
-Route::post('items/create_new_item' , 'ItemsController@createNewItem');
-Route::post('items/create_new_software' , 'ItemsController@createNewItem');
+Route::get('items/create_hardware_item' , 'ItemsController@createHardwareItem');
+Route::get('items/create_software_item' , 'ItemsController@createSoftwareItem');
+Route::get('items/all/{id?}' , 'ItemsController@allItems');
 Route::get('items/{id}' , 'ItemsController@singleItem');
 Route::get('items/{id}/delete' , 'ItemsController@removeItem');
 
@@ -33,6 +33,7 @@ Route::get('items/{id}/delete' , 'ItemsController@removeItem');
 Route::get('kits' , 'KitsController@index');
 Route::get('kits/create' , 'KitsController@create');
 Route::post('kits/create_new_item' , 'KitsController@createNewItem');
+Route::get('kits/all' , 'KitsController@allItems');
 Route::get('kits/{id}' , 'KitsController@singleKit');
 Route::get('kits/{id}/delete' , 'KitsController@removeItem');
 

@@ -32,6 +32,11 @@ class KitsController extends Controller {
 		return view('kits/create_new_kit');
 	}
 
+	public function allItems()
+	{
+		return view('kits/all_items');
+	}
+
 	public function removekit()
 	{
 		return view('kits/remove_kit');

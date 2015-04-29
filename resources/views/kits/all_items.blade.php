@@ -8,15 +8,18 @@
 
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/loans') }}">Kit Loans</a></li>
-        <li class="active">Create New Loan</li>
+        <li><a href="{{ url('/kits') }}">Kit</a></li>
+        <li class="active">All Kits</li>
       </ol>
 
+
       <div class="panel panel-default">
-        <div class="panel-heading">Create New Loan</div>
+        <div class="panel-heading">All Kits</div>
 
         <div class="panel-body">
-          Form to create a new loan
+          
+          All Kits
+
         </div>
       </div>
     </div>

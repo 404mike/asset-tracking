@@ -22,14 +22,19 @@ class ItemsController extends Controller {
 		return view('items/single_item');
 	}
 
-	public function create()
+	public function createHardwareItem()
 	{
-		return view('items/create');
+		return view('items/create_hardware');
 	}
 
-	public function createNewItem()
+	public function createSoftwareItem()
 	{
-		return view('items/create_new_item');
+		return view('items/create_software');
+	}
+
+	public function allItems($id = '')
+	{
+		return view('items/all_items');
 	}
 
 	public function removeItem()

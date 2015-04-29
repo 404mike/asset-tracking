@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  // Item type toggle
   $('#create_type').on('change' , function(){
     var val = $(this).val();
 
@@ -22,6 +23,11 @@ $(document).ready(function(){
       $('#create_item_type_value').html('');
     }
 
+  });
+
+  // Toggle item loan details
+  $('.show_item_loan_details').click(function(){
+    $(this).parent().children('.exta_loan_info').toggle();
   });
 
 });

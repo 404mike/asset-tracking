@@ -4,6 +4,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
+
+
+      <ol class="breadcrumb">
+        <li><a href="{{ url('/home') }}">Home</a></li>
+        <li><a href="{{ url('/kits') }}">Kit</a></li>
+        <li class="active">Create New Kit</li>
+      </ol>
+
       <div class="panel panel-default">
         <div class="panel-heading">Create New Kit</div>
 
