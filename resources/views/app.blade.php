@@ -28,7 +28,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Asset Tracking</a>
+				<a class="navbar-brand" href="{{ url('/') }}"><abbr title="Casgliad Y Werin">CYW</abbr> Asset Tracking</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,7 +37,7 @@
 					<li><a href="{{ url('/search') }}">Search</a></li>
 					<li><a href="{{ url('/items') }}">Items</a></li>
 					<li><a href="{{ url('/kits') }}">Kits</a></li>
-					<li><a href="{{ url('/loans') }}">Loans</a></li>
+					<li><a href="{{ url('/loans') }}">Loans <span class="badge">0</span> </a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

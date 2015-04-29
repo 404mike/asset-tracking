@@ -11,6 +11,11 @@
 
           <a href="items/create" type="button" class="btn btn-default">Create new item</a>
 
+
+          <a class="btn btn-primary" type="button">
+            Show all Items
+          </a>
+
         </div>
       </div>
     </div>
