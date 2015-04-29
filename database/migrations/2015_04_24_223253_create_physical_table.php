@@ -24,7 +24,6 @@ class CreatePhysicalTable extends Migration {
 	    $table->string('admin_username');
 	    $table->string('alternate_username');
 	    $table->string('inventory_number'); // llgc_id, cyw_id
-	    $table->string('comments');
 	    $table->string('operating_system');
 	    $table->string('status');
 	    $table->string('last_update');

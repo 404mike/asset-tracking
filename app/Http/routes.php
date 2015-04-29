@@ -11,16 +11,42 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+// Route
+Route::get('/', 'HomeController@index');
 
+// // Homepage
 Route::get('home', 'HomeController@index');
 
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
+// Search
+Route::get('search' , 'SearchController@index');
+Route::get('search/query' , 'SearchController@query');
 
+// Items
+Route::get('items' , 'ItemsController@index');
+Route::get('items/create' , 'ItemsController@create');
+Route::post('items/create_new_item' , 'ItemsController@createNewItem');
+Route::post('items/create_new_software' , 'ItemsController@createNewItem');
+Route::get('items/{id}' , 'ItemsController@singleItem');
+Route::get('items/{id}/delete' , 'ItemsController@removeItem');
 
-Route::get('mike/login' , 'Auth\AuthController@getLogin');
-Route::get('mike/logout' , 'Auth\AuthController@getLogout');
-Route::get('mike/register' , 'Auth\AuthController@getRegister');
+// Kits
+Route::get('kits' , 'KitsController@index');
+Route::get('kits/create' , 'KitsController@create');
+Route::post('kits/create_new_item' , 'KitsController@createNewItem');
+Route::get('kits/{id}' , 'KitsController@singleKit');
+Route::get('kits/{id}/delete' , 'KitsController@removeItem');
+
+// Loans
+Route::get('loans' , 'LoansController@index');
+Route::get('loans/create' , 'LoansController@create');
+Route::post('loans/create_new_loan' , 'LoansController@createNewItem');
+Route::get('loans/notify' , 'LoansController@notify');
+Route::get('loans/{id}' , 'LoansController@singleItem');
+Route::get('loans/{id}/delete' , 'LoansController@removeItem');
+
+// Auth
+Route::get('auth/login' , 'Auth\AuthController@getLogin');
+Route::post('auth/login' , 'Auth\AuthController@postLogin');
+Route::get('auth/logout' , 'Auth\AuthController@getLogout');
+Route::get('auth/register' , 'Auth\AuthController@getRegister');
+Route::post('auth/register' , 'Auth\AuthController@postRegister');
