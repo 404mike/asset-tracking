@@ -23,8 +23,13 @@ Route::get('search/query' , 'SearchController@query');
 
 // Items
 Route::get('items' , 'ItemsController@index');
-Route::get('items/create_hardware_item' , 'ItemsController@createHardwareItem');
-Route::get('items/create_software_item' , 'ItemsController@createSoftwareItem');
+// Create hardware item
+Route::get('items/create_hardware_item' , 'ItemsController@getHardwareItem');
+Route::post('items/create_hardware_item' , 'ItemsController@postHardwareItem');
+// Create software item
+Route::get('items/create_software_item' , 'ItemsController@getSoftwareItem');
+Route::post('items/create_software_item' , 'ItemsController@postSoftwareItem');
+// Get items
 Route::get('items/all/{id?}' , 'ItemsController@allItems');
 Route::get('items/{id}' , 'ItemsController@singleItem');
 Route::get('items/{id}/delete' , 'ItemsController@removeItem');

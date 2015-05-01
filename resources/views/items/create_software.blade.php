@@ -5,6 +5,17 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
+      <!-- Errors -->
+      @if (count($errors) > 0)
+        <div class="alert alert-danger">
+          <strong>Whoops!</strong> There were some problems with your input.<br><br>
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
 
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
@@ -18,8 +29,8 @@
         <div class="panel-body">
 
 
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('items/create_new_software') }}">
-
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('items/create_software_item') }}">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
             <label class="col-md-4 control-label">Name</label>
             <div class="col-md-6">

@@ -11,7 +11,7 @@ class CreateSoftwareRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -23,6 +23,10 @@ class CreateSoftwareRequest extends Request {
 	{
 		return [
 			//
+			'name' => 'required|min:4',
+			'manufacturer' => 'required',
+			'inventory_number' => 'required',
+			'licence' => 'required'
 		];
 	}
 

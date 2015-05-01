@@ -2,7 +2,6 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller {
@@ -22,15 +21,26 @@ class ItemsController extends Controller {
 		return view('items/single_item');
 	}
 
-	public function createHardwareItem()
+	public function getHardwareItem()
 	{
 		return view('items/create_hardware');
 	}
 
-	public function createSoftwareItem()
+	public function postHardwareItem(\App\Http\Requests\CreateHardwareRequest $request)
+	{
+		return view('items/create_hardware');
+	}
+
+	public function getSoftwareItem()
 	{
 		return view('items/create_software');
 	}
+
+	public function postSoftwareItem(\App\Http\Requests\CreateSoftwareRequest $request)
+	{
+		return view('items/create_software');
+	}
+
 
 	public function allItems($id = '')
 	{

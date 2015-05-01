@@ -11,7 +11,7 @@ class CreateHardwareRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;
+		return true;
 	}
 
 	/**
@@ -23,6 +23,9 @@ class CreateHardwareRequest extends Request {
 	{
 		return [
 			//
+			'name' => 'required|min:4',
+			'inventory_number' => 'required',
+			'serial_number' => 'required'
 		];
 	}
 
