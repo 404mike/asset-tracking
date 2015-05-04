@@ -2,7 +2,8 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Request;
 
 class ItemsController extends Controller {
 
@@ -28,7 +29,8 @@ class ItemsController extends Controller {
 
 	public function postHardwareItem(\App\Http\Requests\CreateHardwareRequest $request)
 	{
-		return view('items/create_hardware');
+		$input = Request::all();
+		\App\HardwareItems::create($input);		
 	}
 
 	public function getSoftwareItem()
@@ -38,7 +40,8 @@ class ItemsController extends Controller {
 
 	public function postSoftwareItem(\App\Http\Requests\CreateSoftwareRequest $request)
 	{
-		return view('items/create_software');
+		$input = Request::all();
+		\App\SoftwareItems::create($input);		
 	}
 
 

@@ -16,7 +16,7 @@ class CreateLoanTable extends Migration {
 		{
 			$table->increments('id');
 	    $table->integer('item_on_loan')->unsigned(); // FK
-	    $table->foreign('item_on_loan')->references('id')->on('physical');
+	    $table->foreign('item_on_loan')->references('id')->on('hardware_items');
 	    $table->integer('kit_on_loan')->unsigned(); // FK
 	    $table->foreign('kit_on_loan')->references('id')->on('kit');
 	    $table->string('on_loan_to');

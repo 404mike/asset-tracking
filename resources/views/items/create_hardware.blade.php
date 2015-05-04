@@ -40,6 +40,13 @@
           </div>
 
           <div class="form-group">
+            <label class="col-md-4 control-label">Type</label>
+            <div class="col-md-6">
+              <input type="text" class="form-control" name="type" value="{{ old('type') }}">
+            </div>
+          </div>          
+
+          <div class="form-group">
             <label class="col-md-4 control-label">Model</label>
             <div class="col-md-6">
               <input type="text" class="form-control" name="model" value="{{ old('model') }}">

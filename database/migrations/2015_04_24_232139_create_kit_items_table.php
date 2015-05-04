@@ -18,7 +18,7 @@ class CreateKitItemsTable extends Migration {
 	    $table->integer('belongs_to_kit')->unsigned(); // FK
 	    $table->foreign('belongs_to_kit')->references('id')->on('kit');
 	    $table->integer('physical_item')->unsigned(); // FK
-	    $table->foreign('physical_item')->references('id')->on('physical');
+	    $table->foreign('physical_item')->references('id')->on('hardware_items');
 			$table->timestamps();
 		});
 	}

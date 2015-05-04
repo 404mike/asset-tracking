@@ -12,16 +12,21 @@ class CreateSoftwareTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('software', function(Blueprint $table)
+		Schema::create('software_items', function(Blueprint $table)
 		{
 			$table->increments('id');
 	    $table->string('name');
-	    $table->string('manufacturer');
-	    $table->string('version');
+	    $table->string('manufacturer')->nullable();
+	    $table->string('version')->nullable();
+	    $table->string('inventory_number');
+	    $table->string('serial_number');	
+	    $table->string('date_of_purchase');
+	    $table->string('supplier_contact')->nullable();
+	    $table->text('notes')->nullable();
 	    $table->integer('installed_on')->unsigned(); // FK
-	    $table->foreign('installed_on')->references('id')->on('physical')->onDelete('cascade');
+	    $table->foreign('installed_on')->references('id')->on('hardware_items')->onDelete('cascade');
 	    $table->string('licence');
-	    $table->string('serial_number');			
+	    		
 			$table->timestamps();
 		});
 	}
@@ -33,7 +38,7 @@ class CreateSoftwareTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('software');
+		Schema::dropIfExists('software_items');
 	}
 
 }
