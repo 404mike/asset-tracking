@@ -17,6 +17,10 @@
         </div>
       @endif
 
+      @if(Session::has('message'))
+        <p class="bg-success flash-message">{{ Session::get('message') }}</p>
+      @endif
+
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
         <li><a href="{{ url('/items')}}">Create Item</a></li>
@@ -42,7 +46,18 @@
           <div class="form-group">
             <label class="col-md-4 control-label">Type</label>
             <div class="col-md-6">
-              <input type="text" class="form-control" name="type" value="{{ old('type') }}">
+              <select class="form-control" name="type" id="type">
+                <option value="camera">Camera</option>
+                <option value="case">Case</option>
+                <option value="camera_tripod">Camera Tripod</option>
+                <option value="laptop">Laptop</option>                
+                <option value="microphone">Microphone</option>
+                <option value="monitor">Monitor</option>
+                <option value="pc">PC</option>     
+                <option value="phone">Phone</option>           
+                <option value="printer">Printer</option>                
+                <option value="scanner">Scanner</option>                
+              </select>
             </div>
           </div>          
 

@@ -17,7 +17,9 @@
 
         <div class="panel-body">
 
-          All Items ?
+          @foreach ($items as $item)
+            <p> {{ $item->name }} </p>
+          @endforeach
 
         </div>
       </div>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhysicalTable extends Migration {
+class CreateHardwareTable extends Migration {
 
 	/**
 	 * Run the migrations.

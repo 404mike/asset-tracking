@@ -30,7 +30,9 @@ class ItemsController extends Controller {
 	public function postHardwareItem(\App\Http\Requests\CreateHardwareRequest $request)
 	{
 		$input = Request::all();
-		\App\HardwareItems::create($input);		
+		\App\HardwareItems::create($input);	
+
+		return redirect('items/create_hardware_item')->with('message' , 'Item Created :)');	
 	}
 
 	public function getSoftwareItem()
@@ -44,10 +46,11 @@ class ItemsController extends Controller {
 		\App\SoftwareItems::create($input);		
 	}
 
-
 	public function allItems($id = '')
 	{
-		return view('items/all_items');
+		$items = \App\HardwareItems::all();
+		// echo '<pre>' , print_r($items) , '</pre>';
+		return view('items/all_items')->with('items' , $items);
 	}
 
 	public function removeItem()
