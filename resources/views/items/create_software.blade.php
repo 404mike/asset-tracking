@@ -20,6 +20,7 @@
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
         <li><a href="{{ url('/items')}}">Items</a></li>
+        <li><a href="{{ url('/items/software')}}">Software</a></li>
         <li class="active">Create Software Item</li>
       </ol>
 

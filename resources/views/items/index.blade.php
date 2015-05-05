@@ -11,17 +11,11 @@
       </ol>
 
       <div class="panel panel-default">
-        <div class="panel-heading">Items index</div>
+        <div class="panel-heading">Choose Hardware or Software Items</div>
 
         <div class="panel-body">
-          <p>
-            <a href="items/create_hardware_item" type="button" class="btn btn-default">Create new Hardware Item</a>
-            <a href="items/all" class="btn btn-primary" type="button">Show all Hardware Items</a>
-          </p>
-          <p>
-            <a href="items/create_software_item" type="button" class="btn btn-default">Create new Software Item</a>
-            <a href="items/all" class="btn btn-primary" type="button">Show all Hardware Items</a>
-          </p>
+          <a href="items/hardware" class="btn btn-primary" type="button">Hardware Items</a>
+          <a href="items/software" class="btn btn-primary" type="button">Software Items</a>
         </div>
 
       </div>

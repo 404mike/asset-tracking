@@ -23,18 +23,24 @@ Route::get('search/query' , 'SearchController@query');
 
 // Items
 Route::get('items' , 'ItemsController@index');
-// Create hardware item
-Route::get('items/create_hardware_item' , 'ItemsController@getHardwareItem');
-Route::post('items/create_hardware_item' , 'ItemsController@postHardwareItem');
-// Create software item
-Route::get('items/create_software_item' , 'ItemsController@getSoftwareItem');
-Route::post('items/create_software_item' , 'ItemsController@postSoftwareItem');
-// Get items
-Route::get('items/all/{id?}' , 'ItemsController@allItems');
-Route::get('items/{id}' , 'ItemsController@singleItem');
-Route::get('items/{id}/delete' , 'ItemsController@removeItem');
-Route::get('items/{id}/edit' , 'ItemsController@getEditItem');
-Route::post('items/{id}/edit' , 'ItemsController@postEditItem');
+
+// Get Hardware items
+Route::get('items/hardware' , 'ItemsController@allHardwareItems');
+Route::get('items/hardware/create' , 'ItemsController@getHardwareItem');
+Route::post('items/hardware/create' , 'ItemsController@postHardwareItem');
+Route::get('items/hardware/{id}' , 'ItemsController@singleHardwareItem');
+Route::get('items/hardware/{id}/delete' , 'ItemsController@removeHardwareItem');
+Route::get('items/hardware/{id}/edit' , 'ItemsController@getEditHardwareItem');
+Route::post('items/hardware/{id}/edit' , 'ItemsController@postEditHardwareItem');
+
+// Get Hardware items
+Route::get('items/software' , 'ItemsController@allSoftwareItems');
+Route::get('items/software/create' , 'ItemsController@getSoftwareItem');
+Route::post('items/software/create' , 'ItemsController@postSoftwareItem');
+Route::get('items/software/{id}' , 'ItemsController@singleSoftwareItem');
+Route::get('items/software/{id}/delete' , 'ItemsController@removeSoftwareItem');
+Route::get('items/software/{id}/edit' , 'ItemsController@getEditSoftwareItem');
+Route::post('items/software/{id}/edit' , 'ItemsController@postEditSoftwareItem');
 
 // Kits
 Route::get('kits' , 'KitsController@index');
