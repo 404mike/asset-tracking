@@ -5,10 +5,9 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
-
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/items')}}">Create Item</a></li>
+        <li><a href="{{ url('/items')}}">Items</a></li>
         <li class="active">All Items</li>
       </ol>
 
@@ -18,9 +17,10 @@
         <div class="panel-body">
 
           @foreach ($items as $item)
-            <p> {{ $item->name }} </p>
+            <div class="all_items_list"><a href="{{ $item->id }}">{{ $item->name }} - {{ $item->inventory_number }}</a></div>
           @endforeach
 
+          <?php echo $items->render(); ?>
         </div>
       </div>
     </div>

@@ -33,6 +33,8 @@ Route::post('items/create_software_item' , 'ItemsController@postSoftwareItem');
 Route::get('items/all/{id?}' , 'ItemsController@allItems');
 Route::get('items/{id}' , 'ItemsController@singleItem');
 Route::get('items/{id}/delete' , 'ItemsController@removeItem');
+Route::get('items/{id}/edit' , 'ItemsController@getEditItem');
+Route::post('items/{id}/edit' , 'ItemsController@postEditItem');
 
 // Kits
 Route::get('kits' , 'KitsController@index');

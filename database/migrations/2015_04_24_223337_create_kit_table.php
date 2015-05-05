@@ -15,6 +15,7 @@ class CreateKitTable extends Migration {
 		Schema::create('kit', function(Blueprint $table)
 		{
 			$table->increments('id');
+	    $table->string('name');
 	    $table->string('comments');
 	    $table->string('location');
 	    $table->string('status'); // on loan, 

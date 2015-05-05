@@ -6301,14 +6301,11 @@ label,
   padding: 15px;
 }
 .all_items_list {
+  border-left-color: #1b809e;
   padding: 20px;
   margin: 20px 0;
   border: 1px solid #eee;
   border-left-width: 5px;
   border-radius: 3px;
   color: #1b809e;
-  border-left-color: #1b809e;
-}
-.list-group-item:hover {
-  background-color: #f5f5f5;
 }

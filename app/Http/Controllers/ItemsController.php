@@ -17,9 +17,15 @@ class ItemsController extends Controller {
 		return view('items/index');
 	}
 
-	public function singleItem()
+	public function singleItem($id)
 	{
-		return view('items/single_item');
+		$item = \App\HardwareItems::find($id);
+		$belongsTo = \DB::table('kit_items')
+										->join('kit', 'kit_items.belongs_to_kit', '=', 'kit.id')
+										->where('kit_items.physical_item' , '=' , $id)
+										->get();
+
+		return view('items/single_item')->with(array('item' => $item , 'belongsTo' => $belongsTo));
 	}
 
 	public function getHardwareItem()
@@ -48,12 +54,22 @@ class ItemsController extends Controller {
 
 	public function allItems($id = '')
 	{
-		$items = \App\HardwareItems::all();
-		// echo '<pre>' , print_r($items) , '</pre>';
+		$items = \App\HardwareItems::paginate(5);
+		$items->setPath('all');
 		return view('items/all_items')->with('items' , $items);
 	}
 
 	public function removeItem()
+	{
+		return view('items/remove_item');
+	}
+
+	public function getEditItem()
+	{
+		return view('items/remove_item');
+	}
+
+	public function postEditItem()
 	{
 		return view('items/remove_item');
 	}

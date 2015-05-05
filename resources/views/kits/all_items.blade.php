@@ -17,9 +17,12 @@
         <div class="panel-heading">All Kits</div>
 
         <div class="panel-body">
-          
-          All Kits
 
+          @foreach ($kits as $kit)
+            <div class="all_items_list"><a href="{{ $kit->id }}">{{ $kit->name }}</a></div>
+          @endforeach
+
+          <?php echo $kits->render(); ?>
         </div>
       </div>
     </div>

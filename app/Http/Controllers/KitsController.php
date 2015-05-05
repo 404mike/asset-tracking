@@ -17,9 +17,17 @@ class KitsController extends Controller {
 		return view('kits/index');
 	}
 
-	public function singlekit()
+	public function singlekit($id)
 	{
-		return view('kits/single_kit');
+		$kitItems = \DB::table('kit')
+							->join('kit_items', 'kit.id', '=', 'kit_items.belongs_to_kit')
+							->join('hardware_items', 'kit_items.physical_item', '=', 'hardware_items.id')
+							->where('kit.id' , '=' , $id)
+							->get();
+
+		$kit = \App\Kit::find($id);
+
+		return view('kits/single_kit')->with(array('kitItems' => $kitItems, 'kit' => $kit));
 	}
 
 	public function create()
@@ -34,7 +42,9 @@ class KitsController extends Controller {
 
 	public function allItems()
 	{
-		return view('kits/all_items');
+		$kits = \App\Kit::paginate(5);
+		$kits->setPath('all');
+		return view('kits/all_items')->with('kits' , $kits);
 	}
 
 	public function removekit()

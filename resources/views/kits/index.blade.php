@@ -18,7 +18,7 @@
         <div class="panel-body">
           
           <a href="kits/create" type="button" class="btn btn-default">Create new Kit</a>
-          <a href="kits/all" type="button" class="btn btn-default">View all Kits</a>
+          <a href="kits/all" type="button" class="btn btn-primary">View all Kits</a>
 
         </div>
       </div>
