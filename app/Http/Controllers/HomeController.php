@@ -30,7 +30,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+		$numberOfLoans = \App\KitLoans::all();
+		return view('home')->with('numberOfLoans' , $numberOfLoans);
 	}
 
 }

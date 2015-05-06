@@ -14,7 +14,13 @@ class LoansController extends Controller {
 	
 	public function index()
 	{
-		return view('loans/index');
+		$loans = \DB::table('loans')
+								->join('kit' , 'loans.kit_on_loan' , '=' , 'kit.id')
+								->orderBy('loans.date_to_return', 'asc')
+								->get();
+
+		return view('loans/index')->with('loans' , $loans);
+
 	}
 
 	public function singleItem()

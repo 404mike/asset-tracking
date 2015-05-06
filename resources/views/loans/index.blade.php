@@ -22,70 +22,41 @@
           <hr />
           <h4>Current items on loan</h4>
 
-          <div class="panel panel-danger">
-            <div class="panel-heading">Mini kit 2 - Late</div>
-            <div class="panel-body">
+          @foreach($loans as $loan)
 
-              <p><strong>On loan to</strong> John Doe</p>
+            <?php 
+              $today = date("Y-m-d H:i:s");
+              if($loan->date_to_return <= $today) {
+                $panelColor = 'danger';
+              }else{
+                $panelColor = 'info';
+              }
+            ?>
 
-              <p><strong>Return date</strong> 24/08/15</p>
+            <div class="panel panel-<?php echo $panelColor; ?>">
+              <div class="panel-heading">{{ $loan->name }}</div>
+              <div class="panel-body">
 
-              <div class="exta_loan_info">
-                <p><strong>On loand from</strong> 20/07/15</strong></p>
-                <p><strong>Location</strong> Cardiff</p>
-                <p><strong>Contact</strong> 0190723423</p>
-                <p><strong>Notes</strong> lorem ipsum</p>
+                <p><strong>On loan to:</strong> {{ $loan->on_loan_to }}</p>
+
+                <p><strong>Return date:</strong> {{ substr($loan->date_to_return, 0, -9) }}</p>
+
+                <div class="exta_loan_info">
+                  <p><strong>On loand from:</strong> {{substr( $loan->date_on_loan, 0 , -9) }}</strong></p>
+                  <p><strong>Location:</strong> {{ $loan->kit_loan_location }}</p>
+                  <p><strong>Contact:</strong> {{ $loan->contact }}</p>
+                  <p><strong>Notes:</strong> {{ $loan->notes }}</p>
+                </div>
+
+                <button type="button" class="btn btn-primary show_item_loan_details">Show more details</button>
+                <button type="button" class="btn btn-default kit-returned">Item returned</button>
+
               </div>
-
-              <button type="button" class="btn btn-primary show_item_loan_details">Show more details</button>
-              <button type="button" class="btn btn-default kit-returned">Item returned</button>
-
             </div>
-          </div>
+          @endforeach
 
 
-          <div class="panel panel-info">
-            <div class="panel-heading">Digikit 5</div>
-            <div class="panel-body">
 
-              <p><strong>On loan to</strong> John Doe</p>
-
-              <p><strong>Return date</strong> 24/08/15</p>
-
-              <div class="exta_loan_info">
-                <p><strong>On loand from</strong> 20/07/15</strong></p>
-                <p><strong>Location</strong> Cardiff</p>
-                <p><strong>Contact</strong> 0190723423</p>
-                <p><strong>Notes</strong> lorem ipsum</p>
-              </div>
-
-              <button type="button" class="btn btn-primary show_item_loan_details">Show more details</button>
-              <button type="button" class="btn btn-default kit-returned">Item returned</button>
-
-            </div>
-          </div>
-
-
-          <div class="panel panel-info">
-            <div class="panel-heading">Digikit 4</div>
-            <div class="panel-body">
-
-              <p><strong>On loan to</strong> John Doe</p>
-
-              <p><strong>Return date</strong> 24/08/15</p>
-
-              <div class="exta_loan_info">
-                <p><strong>On loand from</strong> 20/07/15</strong></p>
-                <p><strong>Location</strong> Cardiff</p>
-                <p><strong>Contact</strong> 0190723423</p>
-                <p><strong>Notes</strong> lorem ipsum</p>
-              </div>
-
-              <button type="button" class="btn btn-primary show_item_loan_details">Show more details</button>
-              <button type="button" class="btn btn-default kit-returned">Item returned</button>
-
-            </div>
-          </div>
 
 
 

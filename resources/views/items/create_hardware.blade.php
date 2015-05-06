@@ -194,12 +194,12 @@
             </div>
           </div>
 
-          <div class="form-group">
+<!--           <div class="form-group">
             <label class="col-md-4 control-label">Picture</label>
             <div class="col-md-6">
               <input type="file" class="form-control" name="ip_address" value="{{ old('ip_address') }}">
             </div>
-          </div>          
+          </div>           -->
 
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

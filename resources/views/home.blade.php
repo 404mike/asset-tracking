@@ -17,7 +17,7 @@
 					  	<i class="fa fa-suitcase fa-2x"></i> <a href="kits">Kits</a> 
 					  </div>
 					  <div class="col-md-3">
-					  	<i class="fa fa-calendar fa-2x"></i> <a href="loans">Loans</a> <span class="badge">0</span> 
+					  	<i class="fa fa-calendar fa-2x"></i> <a href="loans">Loans</a> <span class="badge">{{ count($numberOfLoans) }}</span> 
 					  </div>
 					  <div class="col-md-3">
 					  	<i class="fa fa-search fa-2x"></i> <a href="search">Search</a>
