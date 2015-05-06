@@ -17,7 +17,7 @@
           
 
           <a href="loans/create" type="button" class="btn btn-default">Start a new loan</a>
-          <a class="btn btn-default" type="button">Loan history</a>
+          <!-- <a class="btn btn-default" type="button">Loan history</a> -->
 
           <hr />
           <h4>Current items on loan</h4>
