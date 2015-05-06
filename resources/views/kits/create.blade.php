@@ -8,7 +8,7 @@
 
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/kits') }}">Kit</a></li>
+        <li><a href="{{ url('/kits') }}">Kits</a></li>
         <li class="active">Create New Kit</li>
       </ol>
 

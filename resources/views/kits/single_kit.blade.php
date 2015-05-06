@@ -7,7 +7,7 @@
 
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/kits') }}">Kit</a></li>
+        <li><a href="{{ url('/kits') }}">Kits</a></li>
         <li class="active">{{ $kit->name }}</li>
       </ol>
 
@@ -17,7 +17,7 @@
         <div class="panel-body">
 
           @foreach ($kitItems as $item)
-            <div class="all_items_list"><a href="../items/{{ $item->physical_item }}">{{ $item->name }} - {{ $item->inventory_number }}</a></div>
+            <div class="all_items_list"><a href="../items/hardware/{{ $item->physical_item }}">{{ $item->name }} - {{ $item->inventory_number }}</a></div>
           @endforeach
 
           <hr />

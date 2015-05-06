@@ -41,17 +41,23 @@
 
           <a class="btn btn-info" href="{{ $item->id }}/edit" role="button">Edit</a>     
 
-        @if(count($belongsTo) > 0)
+
+          @if(count($installedSoftware) > 0)
             <hr />
-            <h4>Belongs to</h4>
-            @foreach($belongsTo as $kit)
-              <a class="btn btn-primary" href="../kits/{{ $kit->id }}" role="button">{{ $kit->name }} - {{ $kit->status }}</a>
+            <h4>Installed Software</h4>
+            @foreach($installedSoftware as $software)
+              <a class="btn btn-default" href="../software/{{ $software->id }}">{{ $software->name }}</a>
             @endforeach
-          <!-- </div> -->
-        @endif
-<!--         <hr />
-         <a class="btn btn-warning" href="../loans/{{ $item->id }}" role="button">Loan History</a>
- -->
+          @endif
+
+          @if(count($belongsTo) > 0)
+              <hr />
+              <h4>Belongs to</h4>
+              @foreach($belongsTo as $kit)
+                <a class="btn btn-primary" href="../../kits/{{ $kit->id }}" role="button">{{ $kit->name }} - {{ $kit->status }}</a>
+              @endforeach
+          @endif
+
       </div>
 
     </div>

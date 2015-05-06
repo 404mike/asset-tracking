@@ -5,21 +5,20 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
-
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
-        <li><a href="{{ url('/kits') }}">Kit</a></li>
-        <li class="active">All Kits</li>
+        <li class="active">Kits</li>
       </ol>
-
 
       <div class="panel panel-default">
         <div class="panel-heading">All Kits</div>
 
         <div class="panel-body">
 
+          <a href="kits/create" type="button" class="btn btn-default">Create new Kit</a>
+
           @foreach ($kits as $kit)
-            <div class="all_items_list"><a href="{{ $kit->id }}">{{ $kit->name }}</a></div>
+            <div class="all_items_list"><a href="kits/{{ $kit->id }}">{{ $kit->name }}</a></div>
           @endforeach
 
           <?php echo $kits->render(); ?>

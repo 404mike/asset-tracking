@@ -76,8 +76,9 @@ class ItemsController extends Controller {
 										->join('kit', 'kit_items.belongs_to_kit', '=', 'kit.id')
 										->where('kit_items.physical_item' , '=' , $id)
 										->get();
-
-		return view('items/single_hardwareItem')->with(array('item' => $item , 'belongsTo' => $belongsTo));
+    $installedSoftware = \App\SoftwareItems::where('installed_on' , '=' , $item->id)->get();
+ 
+		return view('items/single_HardwareItem')->with(array('item' => $item , 'belongsTo' => $belongsTo , 'installedSoftware' => $installedSoftware));
 	}
 
 	/**
@@ -120,12 +121,13 @@ class ItemsController extends Controller {
   public function singleSoftwareItem($id)
   {
     $item = \App\SoftwareItems::find($id);
+    $installedOn = \App\HardwareItems::find($item->installed_on);
     $belongsTo = \DB::table('kit_items')
                     ->join('kit', 'kit_items.belongs_to_kit', '=', 'kit.id')
                     ->where('kit_items.physical_item' , '=' , $id)
                     ->get();
 
-    return view('items/single_SoftwareItem')->with(array('item' => $item , 'belongsTo' => $belongsTo));
+    return view('items/single_SoftwareItem')->with(array('item' => $item , 'belongsTo' => $belongsTo , 'installed_on' => $installedOn));
   }
 
   /**

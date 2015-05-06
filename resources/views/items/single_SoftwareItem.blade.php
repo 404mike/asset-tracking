@@ -25,7 +25,7 @@
             <li class="list-group-item"><strong>Date of Purchase</strong> - {{ $item->date_of_purchase }} </li>
             <li class="list-group-item"><strong>Supplier Contact</strong> - {{ $item->supplier_contact }} </li>
             <li class="list-group-item"><strong>notes</strong> - {{ $item->notes }} </li>
-            <li class="list-group-item"><strong>Installed On</strong> - {{ $item->installed_on }} </li>
+            <li class="list-group-item"><strong>Installed On</strong> - <a href="../hardware/{{ $installed_on->id }}">{{ $installed_on->name }}</a></li>
             <li class="list-group-item"><strong>Licence</strong> - {{ $item->licence }} </li>
           </ul>    
 
