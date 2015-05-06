@@ -30,7 +30,7 @@
         <div class="panel-body">
 
 
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('items/create_software_item') }}">
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('items/software/create') }}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
             <label class="col-md-4 control-label">Name</label>

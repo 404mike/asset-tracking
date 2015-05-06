@@ -36,7 +36,7 @@ class ItemsController extends Controller {
 		$input = Request::all();
 		\App\HardwareItems::create($input);	
 
-		return redirect('items/create_hardware_item')->with('message' , 'Item Created :)');	
+		return redirect('items/hardware/create')->with('message' , 'Item Created :)');	
 	}
 
 	/**
@@ -78,7 +78,8 @@ class ItemsController extends Controller {
 										->get();
     $installedSoftware = \App\SoftwareItems::where('installed_on' , '=' , $item->id)->get();
  
-		return view('items/single_HardwareItem')->with(array('item' => $item , 'belongsTo' => $belongsTo , 'installedSoftware' => $installedSoftware));
+		return view('items/single_HardwareItem')->with(
+      array('item' => $item , 'belongsTo' => $belongsTo , 'installedSoftware' => $installedSoftware));
 	}
 
 	/**
@@ -127,7 +128,8 @@ class ItemsController extends Controller {
                     ->where('kit_items.physical_item' , '=' , $id)
                     ->get();
 
-    return view('items/single_SoftwareItem')->with(array('item' => $item , 'belongsTo' => $belongsTo , 'installed_on' => $installedOn));
+    return view('items/single_SoftwareItem')->with(
+        array('item' => $item , 'belongsTo' => $belongsTo , 'installed_on' => $installedOn));
   }
 
   /**

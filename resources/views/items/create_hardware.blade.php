@@ -34,7 +34,7 @@
         <div class="panel-body">
 
 
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('items/create_hardware_item') }}">
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('items/hardware/create') }}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
           <div class="form-group">

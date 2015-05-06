@@ -34,7 +34,7 @@
             <li class="list-group-item"><strong>Service Level Agreement</strong> - {{ $item->service_level_agreement }} </li>
             <li class="list-group-item"><strong>Active Directory</strong> - {{ $item->active_directory }} </li>
             <li class="list-group-item"><strong>Date of Purchase</strong> - {{ $item->date_of_purchase }} </li>
-            <li class="list-group-item"><strong>Supplier Contact - {{ $item->supplier_contact }} </li>
+            <li class="list-group-item"><strong>Supplier Contact</strong> - {{ $item->supplier_contact }} </li>
             <li class="list-group-item"><strong>IP Address</strong> - {{ $item->ip_address }} </li>
             <li class="list-group-item"><strong>Notes</strong> - {{ $item->notes }} </li>   
           </ul>    
