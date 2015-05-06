@@ -23,9 +23,15 @@ class LoansController extends Controller {
 
 	}
 
-	public function singleItem()
+	public function singleItem($id)
 	{
-		return view('loans/single_loan');
+		$loans = \DB::table('loans')
+								->join('kit' , 'loans.kit_on_loan' , '=' , 'kit.id')
+								->orderBy('loans.date_to_return', 'asc')
+								->where('loans.kit_on_loan' , '=' , $id)
+								->get();
+
+		return view('loans/single_loan')->with('loans' , $loans);
 	}
 
 	public function create()
