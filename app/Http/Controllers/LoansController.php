@@ -30,6 +30,9 @@ class LoansController extends Controller {
 								->orderBy('loans.date_to_return', 'asc')
 								->where('loans.kit_on_loan' , '=' , $id)
 								->get();
+		if(count($loans) == 0) {
+			return view('loans/no_loans');
+		} 
 
 		return view('loans/single_loan')->with('loans' , $loans);
 	}
