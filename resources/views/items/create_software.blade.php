@@ -91,7 +91,7 @@
           <div class="form-group">
             <label class="col-md-4 control-label">Installed On</label>
             <div class="col-md-6">
-              <input type="text" class="form-control installed_on" name="installed_on" value="{{ old('installed_on') }}" data-provide="typeahead">
+              <input class="typeahead" type="text" placeholder="States of USA">
             </div>
           </div>
 
