@@ -45,7 +45,7 @@ Route::post('items/software/{id}/edit' , 'ItemsController@postEditSoftwareItem')
 // Kits
 Route::get('kits' , 'KitsController@allItems');
 Route::get('kits/create' , 'KitsController@create');
-Route::post('kits/create_new_item' , 'KitsController@createNewItem');
+Route::post('kits/creat' , 'KitsController@createNewItem');
 // Route::get('kits/all' , 'KitsController@allItems');
 Route::get('kits/{id}' , 'KitsController@singleKit');
 Route::get('kits/{id}/delete' , 'KitsController@removeItem');
@@ -65,20 +65,5 @@ Route::get('auth/logout' , 'Auth\AuthController@getLogout');
 Route::get('auth/register' , 'Auth\AuthController@getRegister');
 Route::post('auth/register' , 'Auth\AuthController@postRegister');
 
-
-Route::get('data' , function(){
-
-  $arr = [
-    'options' => [
-      'Option 1',
-      'Option 2',
-      'Option 3',
-      'Option 4',
-      'Option 5',
-      'Option 6',
-    ]
-  ];
-
-  return Response::json($arr);
-
-});
+// Drop down list for installed on
+Route::get('data' , 'AjaxRequestController@getInstalledOnItems');

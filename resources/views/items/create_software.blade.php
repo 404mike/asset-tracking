@@ -17,6 +17,10 @@
         </div>
       @endif
 
+      @if(Session::has('message'))
+        <p class="bg-success flash-message">{{ Session::get('message') }}</p>
+      @endif      
+
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
         <li><a href="{{ url('/items')}}">Items</a></li>
@@ -91,7 +95,8 @@
           <div class="form-group">
             <label class="col-md-4 control-label">Installed On</label>
             <div class="col-md-6">
-              <input type="text" class="form-control installed_on" name="installed_on" value="{{ old('installed_on') }}" data-provide="typeahead">
+              <input type="text" class="form-control installed_on" name="installed_on_view" value="{{ old('installed_on_view') }}" data-provide="typeahead">
+              <input type="hidden" name="installed_on" id="installed_on" value="{{ old('installed_on') }}">
             </div>
           </div>
 

@@ -29,13 +29,21 @@
           <hr />
 
           <div class="form-group">
-            <label class="col-md-4 control-label">Manufacturer</label>
+            <label class="col-md-4 control-label">Search for items</label>
             <div class="col-md-6">
-              <input type="text" class="form-control" name="manufacturer" value="{{ old('manufacturer') }}">
+              <input type="text" class="form-control" name="search_kit_items" id="search_kit_items" value="{{ old('manufacturer') }}">
             </div>
           </div>
 
           <hr />
+
+          <div class="form-group" id="kit-items">
+            <div class="list-group">
+              <p href="#" class="list-group-item active">
+                Items
+              </p>              
+            </div>
+          </div>
 
           <div class="form-group">
             <div class="col-md-6 col-md-offset-4">

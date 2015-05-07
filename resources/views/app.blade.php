@@ -7,6 +7,7 @@
 	<title>Asset Tracking</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/jquery-ui.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 	<!-- Fonts -->
@@ -63,7 +64,7 @@
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	<script src="{{ asset( '/js/typeahead.bundle.min.js') }}"></script>
+	<script src="{{ asset( '/js/jquery-ui.js') }}"></script>	
 	<script src="{{ asset( '/js/main.js') }}"></script>	
 </body>
 </html>
