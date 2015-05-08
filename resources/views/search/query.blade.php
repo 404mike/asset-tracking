@@ -10,8 +10,8 @@
         <div class="panel-body">
 
         Results
-
-
+          <?php echo '<pre>'  , print_r($results) , '</pre>';?>
+          <?php echo $pag->render(); ?>
         </div>
       </div>
     </div>

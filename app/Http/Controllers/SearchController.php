@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\hardwareItems;
-
+use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
 class SearchController extends Controller {
 
@@ -36,11 +36,21 @@ class SearchController extends Controller {
     else{
       $results = $this->searchAllItems( $search );
     }
+// new Paginator($items, $count, $limit, $page)
+$paginator = new Paginator($results, count($results), 2, 1);
+$paginator->setPath('software');
+    // dd($paginator);
 
-    dd($results);
-
-    return view('search/query');
+    return view('search/query')->with(array('results' => $results , 'pag' => $paginator));
   }
+
+
+  public function products(Paginator $paginator , $items)
+  {
+      $products = [];
+      return $paginator->make($products, count($products), Input::get('limit') ?: '10');
+  }
+
 
   /**
    *
@@ -57,10 +67,11 @@ class SearchController extends Controller {
                     ->select(\DB::raw("inventory_number, id, serial_number, name, 'software' AS 'type'"))
                     ->where('inventory_number', 'LIKE', $search)
                     ->orWhere('name', 'LIKE', $search)
-                    ->orWhere('serial_number', 'LIKE', $search)->union($hardware_items)->Paginate(2);
+                    ->orWhere('serial_number', 'LIKE', $search)->union($hardware_items)->get();
 
     return $software_items;
   }
+
 
   /**
    *
