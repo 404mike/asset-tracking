@@ -87,25 +87,22 @@ class ItemsController extends Controller {
 	/**
 	 *
 	 */
-	public function removeHardwareItem()
+	public function getEditHardwareItem($id)
 	{
-		return view('items/remove_item');
+    $item = \App\HardwareItems::find($id);
+		return view('items/edit_item')->with('item' , $item);
 	}
 
 	/**
 	 *
 	 */
-	public function getEditHardwareItem()
+	public function postEditHardwareItem($id)
 	{
-		return view('items/remove_item');
-	}
-
-	/**
-	 *
-	 */
-	public function postEditHardwareItem()
-	{
-		return view('items/remove_item');
+    $post_data = \Input::all();
+    $formobj = \App\HardwareItems::find($id);
+    $formobj->fill($post_data);
+    $formobj->save();
+		return redirect('items/hardware/'.$id)->with('message' , 'Details Updated');  
 	}
 
   /**
@@ -137,25 +134,37 @@ class ItemsController extends Controller {
   /**
    *
    */
-  public function removeSoftwareItem()
+  public function getEditSoftwareItem($id)
   {
-    return view('items/remove_item');
+    $item = \App\SoftwareItems::find($id);
+    $hardware = \App\HardwareItems::find($item->installed_on);
+    return view('items/edit_softwareitem')->with(array('item' => $item , 'hardware' => $hardware));
   }
 
   /**
    *
    */
-  public function getEditSoftwareItem()
+  public function postEditSoftwareItem($id)
   {
-    return view('items/remove_item');
+    $post_data = \Input::all();
+    $formobj = \App\SoftwareItems::find($id);
+    $formobj->fill($post_data);
+    $formobj->save();
+    return redirect('items/software/'.$id)->with('message' , 'Details Updated'); 
   }
 
   /**
    *
    */
-  public function postEditSoftwareItem()
+  public function removeItem( $type , $id )
   {
-    return view('items/remove_item');
+    if( $type == 'software' ) {
+      $item = \App\SoftwareItems::find($id)->delete();
+    }
+    elseif ($type == 'hardware') {
+      $item = \App\HardwareItems::find($id)->delete();
+   }
+   return redirect('/')->with('message' , 'Item Deleted');  
   }
 
 }

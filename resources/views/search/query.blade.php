@@ -9,8 +9,16 @@
 
         <div class="panel-body">
 
-        Results
-          <?php echo '<pre>'  , print_r($results) , '</pre>';?>
+          @foreach($results as $res)
+            <div>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <a href="../items/{{ $res->type }}/{{ $res->id }}">{{ $res->name }} - {{ $res->inventory_number }} - {{ $res->serial_number }}</a>
+                </div>
+              </div>
+            </div>
+          @endforeach
+
           <?php echo $pag->render(); ?>
         </div>
       </div>

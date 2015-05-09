@@ -42,11 +42,12 @@ Route::get('items/software/{id}/delete' , 'ItemsController@removeSoftwareItem');
 Route::get('items/software/{id}/edit' , 'ItemsController@getEditSoftwareItem');
 Route::post('items/software/{id}/edit' , 'ItemsController@postEditSoftwareItem');
 
+Route::get('items/delete/{type?}/{id?}' , 'ItemsController@removeItem');
+
 // Kits
 Route::get('kits' , 'KitsController@allItems');
 Route::get('kits/create' , 'KitsController@create');
 Route::post('kits/creat' , 'KitsController@createNewItem');
-// Route::get('kits/all' , 'KitsController@allItems');
 Route::get('kits/{id}' , 'KitsController@singleKit');
 Route::get('kits/{id}/delete' , 'KitsController@removeItem');
 

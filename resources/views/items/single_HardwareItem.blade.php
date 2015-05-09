@@ -4,6 +4,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
+      
+      @if(Session::has('message'))
+        <p class="bg-success flash-message">{{ Session::get('message') }}</p>
+      @endif
 
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
@@ -57,6 +61,26 @@
                 <a class="btn btn-primary" href="../../kits/{{ $kit->id }}" role="button">{{ $kit->name }} - {{ $kit->status }}</a>
               @endforeach
           @endif
+
+          <hr />
+
+          <!-- <button type="button" class="btn btn-danger delete-item" data-type="hardware" data-id="{{ $item->id }}" data-target=".bs-example-modal-sm">Delete this item</button> -->
+
+          <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete this item?</h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                  <button type="button" class="btn btn-primary delete-yes">Yes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
       </div>
 

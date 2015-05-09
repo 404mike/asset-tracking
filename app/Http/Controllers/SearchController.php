@@ -24,39 +24,37 @@ class SearchController extends Controller {
    */
   public function query()
   {
+    $searchUnfilter = \Input::get('q');
     $search = '%'.\Input::get('q').'%';
     $filter = \Input::get('restrict');
+    $offset = \Input::get('?page');
+
+    $limit = 5;
 
     if($filter == 'asset_code') {
-      $results = $this->searchByAssetCode( $search  , '');
+      $results = $this->searchByAssetCode( $search , $limit , $offset );
     }
     elseif($filter == 'serial_code') {
-      $results = $this->searchBySerialCode( $search );
+      $results = $this->searchBySerialCode( $search , $limit , $offset );
     }
     else{
-      $results = $this->searchAllItems( $search );
+      $results = $this->searchAllItems( $search , $limit , $offset );
     }
-// new Paginator($items, $count, $limit, $page)
-$paginator = new Paginator($results, count($results), 2, 1);
-$paginator->setPath('software');
-    // dd($paginator);
+    // new Paginator($items, $count, $limit, $page)
+    // echo $limit;
+    $paginator = new Paginator($results, count($results), $limit , $offset);
+    $paginator->setPath('?q='.$searchUnfilter.'&restrict='.$filter.'&');
 
     return view('search/query')->with(array('results' => $results , 'pag' => $paginator));
-  }
-
-
-  public function products(Paginator $paginator , $items)
-  {
-      $products = [];
-      return $paginator->make($products, count($products), Input::get('limit') ?: '10');
   }
 
 
   /**
    *
    */
-  public function searchAllItems( $search )
+  public function searchAllItems( $search , $limit , $offset )
   {
+    $foo = '';
     $hardware_items = \DB::table('hardware_items')
                     ->select(\DB::raw("inventory_number, id, serial_number, name, 'hardware' AS 'type'"))
                     ->where('inventory_number', 'LIKE', $search)
@@ -67,7 +65,11 @@ $paginator->setPath('software');
                     ->select(\DB::raw("inventory_number, id, serial_number, name, 'software' AS 'type'"))
                     ->where('inventory_number', 'LIKE', $search)
                     ->orWhere('name', 'LIKE', $search)
-                    ->orWhere('serial_number', 'LIKE', $search)->union($hardware_items)->get();
+                    ->orWhere('serial_number', 'LIKE', $search)
+                    ->union($hardware_items)
+                    ->limit($limit)
+                    ->offset($offset)
+                    ->get();
 
     return $software_items;
   }
