@@ -47,7 +47,7 @@ Route::get('items/delete/{type?}/{id?}' , 'ItemsController@removeItem');
 // Kits
 Route::get('kits' , 'KitsController@allItems');
 Route::get('kits/create' , 'KitsController@create');
-Route::post('kits/creat' , 'KitsController@createNewItem');
+Route::post('kits/create' , 'KitsController@createNewkit');
 Route::get('kits/{id}' , 'KitsController@singleKit');
 Route::get('kits/{id}/delete' , 'KitsController@removeItem');
 

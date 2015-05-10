@@ -55,7 +55,7 @@ class ItemsController extends Controller {
 		$input = Request::all();
 		\App\SoftwareItems::create($input);		
 
-    return redirect('items/software/create')->with('message' , 'Item Created :)');
+    return redirect('items/software/create')->with('message' , 'Item Created');
 	}
 
 	/**

@@ -18,7 +18,7 @@
           <a href="kits/create" type="button" class="btn btn-default">Create new Kit</a>
 
           @foreach ($kits as $kit)
-            <div class="all_items_list"><a href="kits/{{ $kit->id }}">{{ $kit->name }}</a></div>
+            <div class="all_items_list"><a href="kits/{{ $kit->id }}">{{ $kit->name }} - {{ $kit->status }}</a></div>
           @endforeach
 
           <?php echo $kits->render(); ?>

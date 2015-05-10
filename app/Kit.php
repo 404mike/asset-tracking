@@ -6,4 +6,5 @@ class Kit extends Model {
 
 	protected $table = 'kit';
 
+  protected $fillable = [];
 }

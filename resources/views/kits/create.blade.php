@@ -5,6 +5,9 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
+      @if(Session::has('message'))
+        <p class="bg-success flash-message">{{ Session::get('message') }}</p>
+      @endif  
 
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
@@ -17,14 +20,32 @@
 
         <div class="panel-body">
          
-          <form class="form-horizontal" role="form" method="POST" action="{{ url('items/create_new_software') }}">
-
+          <form class="form-horizontal" role="form" method="POST" action="{{ url('kits/create') }}">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group">
             <label class="col-md-4 control-label">Kit Name</label>
             <div class="col-md-6">
               <input type="text" class="form-control" name="name" value="{{ old('name') }}">
             </div>
           </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Location</label>
+            <div class="col-md-6">
+              <input type="text" class="form-control" name="location" value="{{ old('location') }}">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Notes</label>
+            <div class="col-md-6">
+              <textarea class="form-control" name="comments">{{ old('comments') }}</textarea>
+            </div>
+          </div>
+
+
 
           <hr />
 

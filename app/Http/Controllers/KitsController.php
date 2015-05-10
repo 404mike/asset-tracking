@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Kit;
+use App\KitItems;
 
 class KitsController extends Controller {
 
@@ -38,13 +39,31 @@ class KitsController extends Controller {
 
 	public function createNewkit()
 	{
-		return view('kits/create_new_kit');
+		$kit = new \App\Kit;
+		$kit->name = \Input::get('name');
+		$kit->comments = \Input::get('comments');
+		$kit->location = \Input::get('location');
+		$kit->status = 'available';
+		$kit->save();
+
+		$insertedId = $kit->id;
+
+		$allKitItems = \Input::get('kit_items');
+
+		foreach($allKitItems as $item) {
+			$kitItems = new \App\KitItems;
+			$kitItems->belongs_to_kit = $insertedId;
+			$kitItems->physical_item = $item;
+			$kitItems->save();
+		}
+
+		return view('kits/create_new_kit')->with('message' , 'Item Kit Created');;
 	}
 
 	public function allItems()
 	{
 		$kits = \App\Kit::paginate(5);
-		$kits->setPath('all');
+		$kits->setPath('');
 		return view('kits/all_items')->with('kits' , $kits);
 	}
 
