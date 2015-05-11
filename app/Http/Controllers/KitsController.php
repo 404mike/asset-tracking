@@ -7,18 +7,25 @@ use Illuminate\Http\Request;
 use App\Kit;
 use App\KitItems;
 
+
 class KitsController extends Controller {
 
 	public function __construct()
 	{
 		$this->middleware('auth');
 	}
-	
+
+	/**
+	 *
+	 */	
 	public function index()
 	{
 		return view('kits/index');
 	}
 
+	/**
+	 *
+	 */
 	public function singlekit($id)
 	{
 		$kitItems = \DB::table('kit')
@@ -32,12 +39,18 @@ class KitsController extends Controller {
 		return view('kits/single_kit')->with(array('kitItems' => $kitItems, 'kit' => $kit));
 	}
 
+	/**
+	 *
+	 */
 	public function create()
 	{
 		return view('kits/create');
 	}
 
-	public function createNewkit()
+	/**
+	 *
+	 */
+	public function createNewkit(\App\Http\Requests\CreateKitRequest $request)
 	{
 		$kit = new \App\Kit;
 		$kit->name = \Input::get('name');
@@ -57,9 +70,12 @@ class KitsController extends Controller {
 			$kitItems->save();
 		}
 
-		return view('kits/create_new_kit')->with('message' , 'Item Kit Created');;
+		return view('kits/create_new_kit')->with('message' , 'Item Kit Created');
 	}
 
+	/**
+	 *
+	 */
 	public function allItems()
 	{
 		$kits = \App\Kit::paginate(5);
@@ -67,6 +83,9 @@ class KitsController extends Controller {
 		return view('kits/all_items')->with('kits' , $kits);
 	}
 
+	/**
+	 *
+	 */
 	public function removekit()
 	{
 		return view('kits/remove_kit');

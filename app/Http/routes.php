@@ -46,6 +46,7 @@ Route::get('items/delete/{type?}/{id?}' , 'ItemsController@removeItem');
 
 // Kits
 Route::get('kits' , 'KitsController@allItems');
+Route::get('kits/create' , 'KitsController@available');
 Route::get('kits/create' , 'KitsController@create');
 Route::post('kits/create' , 'KitsController@createNewkit');
 Route::get('kits/{id}' , 'KitsController@singleKit');
@@ -53,11 +54,12 @@ Route::get('kits/{id}/delete' , 'KitsController@removeItem');
 
 // Loans
 Route::get('loans' , 'LoansController@index');
-Route::get('loans/create' , 'LoansController@create');
-Route::post('loans/create_new_loan' , 'LoansController@createNewItem');
+Route::get('loans/create/{id}' , 'LoansController@getCreate');
+Route::post('loans/create' , 'LoansController@postCreate');
+Route::get('loans/available' , 'LoansController@availableKits');
 Route::get('loans/notify' , 'LoansController@notify');
+Route::get('loans/close/{id?}' , 'LoansController@returnedItem');
 Route::get('loans/{id}' , 'LoansController@singleItem');
-Route::get('loans/{id}/delete' , 'LoansController@removeItem');
 
 // Auth
 Route::get('auth/login' , 'Auth\AuthController@getLogin');

@@ -16,7 +16,7 @@ class CreateKitTable extends Migration {
 		{
 			$table->increments('id');
 	    $table->string('name');
-	    $table->string('comments');
+	    $table->text('comments');
 	    $table->string('location');
 	    $table->string('status'); // on loan, 
 			$table->timestamps();

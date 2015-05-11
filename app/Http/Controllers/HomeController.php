@@ -30,7 +30,7 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$numberOfLoans = \App\KitLoans::all();
+		$numberOfLoans = \App\KitLoans::where('status' , '=' , 'on loan')->get();
 		return view('home')->with('numberOfLoans' , $numberOfLoans);
 	}
 

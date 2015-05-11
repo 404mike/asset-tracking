@@ -16,13 +16,13 @@
 
 					<div class="row">
 					  <div class="col-md-3">
-					  	<i class="fa fa-laptop fa-2x"></i> <a href="items">Items</a>
+					  	<a class="home-items" href="items"><i class="fa fa-laptop fa-2x"></i> Items</a>
 					  </div>
 					  <div class="col-md-3">
-					  	<i class="fa fa-suitcase fa-2x"></i> <a href="kits">Kits</a> 
+					  	<a class="home-items" href="kits"><i class="fa fa-suitcase fa-2x"></i> Kits</a> 
 					  </div>
 					  <div class="col-md-3">
-					  	<i class="fa fa-calendar fa-2x"></i> <a href="loans">Loans</a> <span class="badge">{{ count($numberOfLoans) }}</span> 
+					  	<a class="home-items" href="loans"><i class="fa fa-calendar fa-2x"></i> Loans <span class="badge">{{ count($numberOfLoans) }}</span> </a>
 					  </div>
 <!-- 					  <div class="col-md-3">
 					  	<i class="fa fa-search fa-2x"></i> <a href="search">Search</a>

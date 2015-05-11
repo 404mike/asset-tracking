@@ -22,9 +22,10 @@ class CreateLoanTable extends Migration {
 	    $table->string('on_loan_to');
 	    $table->string('date_on_loan');
 	    $table->string('date_to_return');
-	    $table->string('notes');
+	    $table->text('notes');
 	    $table->string('kit_loan_location');
 	    $table->string('contact');
+	    $table->string('status');
 			$table->timestamps();
 		});
 	}

@@ -19,16 +19,7 @@
 
           @foreach($loans as $loan)
 
-            <?php 
-              $today = date("Y-m-d H:i:s");
-              if($loan->date_to_return <= $today) {
-                $panelColor = 'danger';
-              }else{
-                $panelColor = 'info';
-              }
-            ?>
-
-            <div class="panel panel-<?php echo $panelColor; ?>">
+            <div class="panel panel-info">
               <div class="panel-heading">{{ $loan->name }}</div>
               <div class="panel-body">
 
@@ -44,7 +35,6 @@
                 </div>
 
                 <button type="button" class="btn btn-primary show_item_loan_details">Show more details</button>
-                <button type="button" class="btn btn-default kit-returned">Item returned</button>
 
               </div>
             </div>

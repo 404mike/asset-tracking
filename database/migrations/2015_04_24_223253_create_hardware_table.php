@@ -34,7 +34,7 @@ class CreateHardwareTable extends Migration {
 	    $table->string('date_of_purchase');
 	    $table->string('supplier_contact');
 	    $table->string('ip_address');
-	    $table->string('notes');			
+	    $table->text('notes');			
 			$table->timestamps();
 		});
 	}

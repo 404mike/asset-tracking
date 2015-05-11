@@ -5,6 +5,10 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
+      @if(Session::has('message'))
+        <p class="bg-success flash-message">{{ Session::get('message') }}</p>
+      @endif
+
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
         <li class="active">Kit Loans</li>
@@ -16,7 +20,7 @@
         <div class="panel-body">
           
 
-          <a href="loans/create" type="button" class="btn btn-default">Start a new loan</a>
+          <a href="loans/available" type="button" class="btn btn-default">View Available Kits</a>
           <!-- <a class="btn btn-default" type="button">Loan history</a> -->
 
           <hr />
@@ -34,7 +38,7 @@
             ?>
 
             <div class="panel panel-<?php echo $panelColor; ?>">
-              <div class="panel-heading">{{ $loan->name }}</div>
+              <div class="panel-heading"><a href="{{ url('kits') }}/{{ $loan->kit_on_loan }}">{{ $loan->name }}</a></div>
               <div class="panel-body">
 
                 <p><strong>On loan to:</strong> {{ $loan->on_loan_to }}</p>
@@ -49,7 +53,7 @@
                 </div>
 
                 <button type="button" class="btn btn-primary show_item_loan_details">Show more details</button>
-                <button type="button" class="btn btn-default kit-returned">Item returned</button>
+                <a href="{{ url('loans/close') }}/{{ $loan->kit_on_loan }}" type="button" class="btn btn-default kit-returned">Item returned</a>
 
               </div>
             </div>

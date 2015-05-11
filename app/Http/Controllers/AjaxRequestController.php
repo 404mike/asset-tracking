@@ -18,6 +18,9 @@ class AjaxRequestController extends Controller {
 		//
 	}
 
+	/**
+	 *
+	 */
 	public function getInstalledOnItems()
 	{
 		$term = \Input::get('term');

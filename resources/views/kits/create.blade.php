@@ -5,6 +5,18 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
+      <!-- Errors -->
+      @if (count($errors) > 0)
+        <div class="alert alert-danger">
+          <strong>Whoops!</strong> There were some problems with your input.<br><br>
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
       @if(Session::has('message'))
         <p class="bg-success flash-message">{{ Session::get('message') }}</p>
       @endif  
