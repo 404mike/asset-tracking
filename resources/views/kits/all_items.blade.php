@@ -5,6 +5,10 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
 
+      @if(Session::has('message'))
+        <p class="bg-success flash-message">{{ Session::get('message') }}</p>
+      @endif  
+
       <ol class="breadcrumb">
         <li><a href="{{ url('/home') }}">Home</a></li>
         <li class="active">Kits</li>
