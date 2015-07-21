@@ -70,7 +70,7 @@ class KitsController extends Controller {
 			$kitItems->save();
 		}
 
-		return view('kits/create_new_kit')->with('message' , 'Item Kit Created');
+		return redirect('kits')->with('message', 'New Kit created');
 	}
 
 	/**
