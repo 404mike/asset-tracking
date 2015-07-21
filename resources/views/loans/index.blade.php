@@ -21,7 +21,6 @@
           
 
           <a href="loans/available" type="button" class="btn btn-default">View Available Kits</a>
-          <!-- <a class="btn btn-default" type="button">Loan history</a> -->
 
           <hr />
           <h4>Current items on loan</h4>

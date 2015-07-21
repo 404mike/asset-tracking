@@ -91,4 +91,44 @@ class KitsController extends Controller {
 		return view('kits/remove_kit');
 	}
 
+
+	public function getSingleKitUpdate($id)
+	{
+		$kitItems = \DB::table('kit')
+							->join('kit_items', 'kit.id', '=', 'kit_items.belongs_to_kit')
+							->join('hardware_items', 'kit_items.physical_item', '=', 'hardware_items.id')
+							->where('kit.id' , '=' , $id)
+							->get();
+
+		$kit = \App\Kit::find($id);
+
+		return view('kits/update')->with(array('kitItems' => $kitItems, 'kit' => $kit));
+	}
+
+	public function postSingleKitUpdate()
+	{
+		echo '<pre>' , print_r($_POST) , '</pre>';
+
+		$name = \Input::get('name');
+		$comments = \Input::get('comments');
+		$location = \Input::get('location');
+		$id = \Input::get('id');
+
+		\App\Kit::where('id', $id)
+		          ->update(['name' => $name, 'comments' => $comments , 'location' => $location]);
+
+		$deletedRows = \App\KitItems::where('belongs_to_kit', $id)->delete();
+
+		$allKitItems = \Input::get('kit_items');
+
+		foreach($allKitItems as $item) {
+			$kitItems = new \App\KitItems;
+			$kitItems->belongs_to_kit = $id;
+			$kitItems->physical_item = $item;
+			$kitItems->save();
+		}
+
+		return redirect('kits/' . $id)->with('message', 'Kit Updated');
+	}
+
 }
