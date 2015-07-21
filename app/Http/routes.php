@@ -50,6 +50,8 @@ Route::get('kits/create' , 'KitsController@available');
 Route::get('kits/create' , 'KitsController@create');
 Route::post('kits/create' , 'KitsController@createNewkit');
 Route::get('kits/{id}' , 'KitsController@singleKit');
+Route::get('kits/{id}/edit' , 'KitsController@singleKitUpdate');
+Route::post('kits/{id}/edit' , 'KitsController@singleKitUpdate');
 Route::get('kits/{id}/delete' , 'KitsController@removeItem');
 
 // Loans
