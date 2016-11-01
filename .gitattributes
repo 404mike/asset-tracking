@@ -1,3 +1,5 @@
+# Autodetect text files
 * text=auto
-*.css linguist-vendored
-*.less linguist-vendored
+
+# Force the following filetypes to have unix eols, so Windows does not break them
+*.* text eol=lf
